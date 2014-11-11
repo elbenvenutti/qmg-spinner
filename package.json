@@ -1,6 +1,7 @@
 {
   "author": "QMetric (https://github.com/qmetric)",
   "name": "qmg-spinner",
+  "private": true,
   "description": "QMetric Spinner",
   "version": "0.1",
   "license": "Copyright",
