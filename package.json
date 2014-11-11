@@ -1,0 +1,11 @@
+{
+  "author": "QMetric (https://github.com/qmetric)",
+  "name": "MotorInsurance",
+  "description": "MotorInsurance Web App",
+  "version": "0.0.2",
+  "license": "Copyright",
+  "repository": {
+      "type": "git",
+      "url": "git@github.com:qmetric/qmg-broker.git"
+  }
+}
