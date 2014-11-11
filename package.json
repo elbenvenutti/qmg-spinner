@@ -1,10 +1,9 @@
 {
-  "author": "QMetric (https://github.com/qmetric)",
   "name": "qmg-spinner",
-  "private": true,
-  "description": "QMetric Spinner",
-  "version": "0.1",
-  "license": "Copyright",
+  "description": "This package extends the excellent Spin.js, designed to be easily dropped in anywhere and triggered from events",
+  "author": "JM <jonkemon@hotmail.com>",
+  "version": "0.1.0",
+  "main": "index.js",
   "repository": {
       "type": "git",
       "url": "git@github.com:jonkemon/qmg-spinner.git"
