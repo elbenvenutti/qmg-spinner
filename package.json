@@ -2,7 +2,7 @@
   "name": "qmg-spinner",
   "description": "This package extends the excellent Spin.js, designed to be easily dropped in anywhere and triggered from events",
   "author": "JM <jonkemon@hotmail.com>",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "index.js",
   "repository": {
       "type": "git",
