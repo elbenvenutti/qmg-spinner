@@ -7,5 +7,6 @@
   "repository": {
       "type": "git",
       "url": "git@github.com:jonkemon/qmg-spinner.git"
-  }
+  },
+  "license": "MIT"
 }
