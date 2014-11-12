@@ -1,3 +1,5 @@
+require('spin-js-lite');
+
 window.QSpin = (function ($, window) {
     'use strict';
 
@@ -26,20 +28,21 @@ window.QSpin = (function ($, window) {
             left: '50%', // Left position relative to parent
             position: 'fixed'
         };
-        spinner = new Spinner(opts).spin();
         container = '<dialog class="spinner-container" style="position:fixed;width:100%;top:0;bottom:0;background:#000;opacity:0.3"></dialog>';
 
         $window.on('spinner:add', addSpinner);
         $window.on('spinner:remove', removeSpinner);
     }
 
-	function addSpinner() {
+    function addSpinner() {
+        spinner = new Spinner(opts).spin();
 		$('body').append(container);
 		$('.spinner-container').append(spinner.el);
 		$('.spinner').css('opacity','1');
 	}
 
 	function removeSpinner() {
+        spinner = null;
 		$('.spinner-container').remove();
 	}
 
