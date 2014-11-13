@@ -36,31 +36,39 @@ window.QSpin = (function ($, window) {
         $window.on('spinner:remove', removeSpinner);
     }
 
-    function addSpinner() {
-        spinner = new Spinner(opts).spin();
-        message = '<p class="spinner-message">Loading...</p>';
-        messageStyles = {
-            fontSize: '2em',
-            position: 'fixed',
-            width: '100%',
-            textAlign: 'center',
-            top: '60%',
-            opacity: '1',
-            color: 'rgb(255, 255, 255)'
-        };
+    function addSpinner(event, className) {
+        if($('.spinner-container').length < 1) {
+            spinner = new Spinner(opts).spin();
+            message = '<p class="spinner-message">Loading...</p>';
+            messageStyles = {
+                fontSize: '2em',
+                position: 'fixed',
+                width: '100%',
+                textAlign: 'center',
+                top: '60%',
+                opacity: '1',
+                color: 'rgb(255, 255, 255)'
+            };
 
-        $('body').append(container);
-        $('.spinner-container').append(spinner.el);
-        $('.spinner').css('opacity','1');
+            $('body').append(container);
+            $('.spinner-container').append(spinner.el);
+            $('.spinner').css('opacity','1');
 
-        $('.spinner-container').after(message);
-        $('.spinner-message').css(messageStyles);
+            $('.spinner-container').after(message);
+            $('.spinner-message').css(messageStyles);
+
+            if(className) {
+                $('.spinner-container').addClass(className);
+            }
+        }
     }
 
-    function removeSpinner() {
-        spinner = null;
-        $('.spinner-container').remove();
-        $('.spinner-message').remove();
+    function removeSpinner(event, className) {
+        if ($('.spinner-container').hasClass(className)) {
+            $('.' + className).remove();
+            $('.spinner-message').remove();
+            spinner = null;
+        }
     }
 
     init();
