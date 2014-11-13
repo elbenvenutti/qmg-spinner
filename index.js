@@ -6,6 +6,8 @@ window.QSpin = (function ($, window) {
     var $window = $(window),
         opts,
         spinner,
+        message,
+        messageStyles,
         container;
 
     function init() {
@@ -28,7 +30,7 @@ window.QSpin = (function ($, window) {
             left: '50%', // Left position relative to parent
             position: 'fixed'
         };
-        container = '<dialog class="spinner-container" style="position:fixed;width:100%;top:0;bottom:0;background:#000;opacity:0.3"></dialog>';
+        container = '<dialog class="spinner-container" style="position:fixed;width:100%;top:0;bottom:0;background:#000;opacity:0.7"></dialog>';
 
         $window.on('spinner:add', addSpinner);
         $window.on('spinner:remove', removeSpinner);
@@ -36,15 +38,30 @@ window.QSpin = (function ($, window) {
 
     function addSpinner() {
         spinner = new Spinner(opts).spin();
-		$('body').append(container);
-		$('.spinner-container').append(spinner.el);
-		$('.spinner').css('opacity','1');
-	}
+        message = '<p class="spinner-message">Loading...</p>';
+        messageStyles = {
+            fontSize: '2em',
+            position: 'fixed',
+            width: '100%',
+            textAlign: 'center',
+            top: '60%',
+            opacity: '1',
+            color: 'rgb(255, 255, 255)'
+        };
 
-	function removeSpinner() {
+        $('body').append(container);
+        $('.spinner-container').append(spinner.el);
+        $('.spinner').css('opacity','1');
+
+        $('.spinner-container').after(message);
+        $('.spinner-message').css(messageStyles);
+    }
+
+    function removeSpinner() {
         spinner = null;
-		$('.spinner-container').remove();
-	}
+        $('.spinner-container').remove();
+        $(message).remove();
+    }
 
     init();
 
