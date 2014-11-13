@@ -60,7 +60,7 @@ window.QSpin = (function ($, window) {
     function removeSpinner() {
         spinner = null;
         $('.spinner-container').remove();
-        $(message).remove();
+        $('.spinner-message').remove();
     }
 
     init();
