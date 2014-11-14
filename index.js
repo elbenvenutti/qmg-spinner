@@ -8,7 +8,8 @@ window.QSpin = (function ($, window) {
         spinner,
         message,
         messageStyles,
-        container;
+        container,
+        dialogContainer;
 
     function init() {
         opts = {
@@ -30,7 +31,7 @@ window.QSpin = (function ($, window) {
             left: '50%', // Left position relative to parent
             position: 'fixed'
         };
-        container = '<dialog class="spinner-container" style="position:fixed;width:100%;top:0;bottom:0;background:#000;opacity:0.7"></dialog>';
+        container = '<p id="spinner-container" class="spinner-container" style="position:fixed;height:100%;width:100%;top:0;bottom:0;background:#000;opacity:0.7"></p>';
 
         $window.on('spinner:add', addSpinner);
         $window.on('spinner:remove', removeSpinner);
@@ -60,6 +61,10 @@ window.QSpin = (function ($, window) {
             if(className) {
                 $('.spinner-container').addClass(className);
             }
+
+            // IE8 fix for opacity
+            dialogContainer = document.getElementById("spinner-container");
+            dialogContainer.style.filter = 'alpha(opacity=70)';
         }
     }
 
