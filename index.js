@@ -31,7 +31,7 @@ window.QSpin = (function ($, window) {
             left: '50%', // Left position relative to parent
             position: 'fixed'
         };
-        container = '<p id="spinner-container" class="spinner-container" style="position:fixed;height:100%;width:100%;top:0;bottom:0;background:#000;opacity:0.7"></p>';
+        container = '<p id="spinner-container" class="spinner-container" style="position:fixed;height:100%;width:100%;top:0;bottom:0;background:#000;opacity:0.7;z-index:1999999998"></p>';
 
         $window.on('spinner:add', addSpinner);
         $window.on('spinner:remove', removeSpinner);
@@ -48,7 +48,8 @@ window.QSpin = (function ($, window) {
                 textAlign: 'center',
                 top: '60%',
                 opacity: '1',
-                color: 'rgb(255, 255, 255)'
+                color: 'rgb(255, 255, 255)',
+                zIndex: '1999999999'
             };
 
             $('body').append(container);
