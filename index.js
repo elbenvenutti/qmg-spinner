@@ -38,7 +38,7 @@ window.QSpin = (function ($, window) {
     }
 
     function addSpinner(event, className) {
-        if($('.spinner-container').length < 1) {
+        if($('.spinner-container').length < 1) { //this prevent multiple spinner from existing at all.
             spinner = new Spinner(opts).spin();
             message = '<p class="spinner-message">Loading...</p>';
             messageStyles = {
@@ -66,15 +66,17 @@ window.QSpin = (function ($, window) {
             // IE8 fix for opacity
             dialogContainer = document.getElementById("spinner-container");
             dialogContainer.style.filter = 'alpha(opacity=70)';
-        }
+        } // maybe we can add smt like else {removeSpinner(event); addSpinner(event, className); } so the latter always ovverides ?
     }
 
-    function removeSpinner(event, className) {
-        if ($('.spinner-container').hasClass(className)) {
-            $('.' + className).remove();
+    function removeSpinner(event) { // , className ) {
+          // since there can be only one spinner at a time, I'll revert this to his previous version, keeping the current code in the comments.
+        // if ($('.spinner-container').hasClass(className)) {
+        //    $('.' + className).remove();
+            $('.spinner-container').remove();
             $('.spinner-message').remove();
             spinner = null;
-        }
+        // }
     }
 
     init();
